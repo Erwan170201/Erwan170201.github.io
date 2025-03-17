@@ -1,3 +1,30 @@
+// Identifiants valides
+const validUsername = "admin";
+const validPassword = "1234";
+
+// Fonction pour vérifier la connexion
+function checkLogin(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let errorMessage = document.getElementById("error-message");
+
+    if (username === validUsername && password === validPassword) {
+        // Stocker l'information de connexion
+        localStorage.setItem("authenticated", "true");
+        window.location.href = "index.html"; // Redirection vers la page principale
+    } else {
+        errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+    }
+}
+
+// Vérifier si l'utilisateur est authentifié avant d'accéder à index.html
+if (window.location.pathname.includes("index.html")) {
+    if (localStorage.getItem("authenticated") !== "true") {
+        window.location.href = "login.html"; // Redirige vers la page de connexion
+    }
+}
 const countries = {
     "europe": {
         title: "Europe",
