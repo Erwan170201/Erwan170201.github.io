@@ -1,32 +1,13 @@
-// Identifiants valides
-const validUsername = "admin";
-const validPassword = "1234";
-
-// Fonction pour vérifier la connexion
-function checkLogin(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let errorMessage = document.getElementById("error-message");
-
-    if (username === validUsername && password === validPassword) {
-        // Stocker l'information de connexion
-        localStorage.setItem("authenticated", "true");
-        window.location.href = "index.html"; // Redirection vers la page principale
-    } else {
-        errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
-    }
-}
-
 // Vérifier si l'utilisateur est authentifié avant d'accéder à index.html
 if (window.location.pathname.includes("index.html")) {
     if (localStorage.getItem("authenticated") !== "true") {
         window.location.href = "login.html"; // Redirige vers la page de connexion
     }
 }
+
+// Liste des pays par continent
 const countries = {
-    "europe": {
+    europe: {
         title: "Europe",
         list: {
             "France": "pdf/france.pdf",
@@ -34,7 +15,7 @@ const countries = {
             "Italie": "pdf/italie.pdf"
         }
     },
-    "afrique": {
+    afrique: {
         title: "Afrique",
         list: {
             "Maroc": "pdf/maroc.pdf",
@@ -42,7 +23,7 @@ const countries = {
             "Afrique du Sud": "pdf/afrique-du-sud.pdf"
         }
     },
-    "amerique": {
+    amerique: {
         title: "Amérique",
         list: {
             "USA": "pdf/usa.pdf",
@@ -50,7 +31,7 @@ const countries = {
             "Brésil": "pdf/bresil.pdf"
         }
     },
-    "asie": {
+    asie: {
         title: "Asie",
         list: {
             "Chine": "pdf/chine.pdf",
@@ -58,7 +39,7 @@ const countries = {
             "Inde": "pdf/inde.pdf"
         }
     },
-    "oceanie": {
+    oceanie: {
         title: "Océanie",
         list: {
             "Australie": "pdf/australie.pdf",
@@ -67,25 +48,45 @@ const countries = {
     }
 };
 
+// Fonction pour afficher la liste des pays sous le menu des continents
 function showCountries(continent) {
-    document.getElementById("continents").classList.add("hidden");
-    document.getElementById("countries").classList.remove("hidden");
-
-    const continentData = countries[continent];
-    document.getElementById("continent-title").innerText = continentData.title;
-
+    document.getElementById("continent-title").innerText = countries[continent].title;
+    
     const countryList = document.getElementById("country-list");
     countryList.innerHTML = "";
 
-    for (let country in continentData.list) {
+    for (let country in countries[continent].list) {
         let li = document.createElement("li");
         li.innerText = country;
-        li.onclick = () => window.open(continentData.list[country], "_blank");
+        li.onclick = () => window.open(countries[continent].list[country], "_blank");
         countryList.appendChild(li);
+    }
+
+    document.getElementById("countries").classList.remove("hidden");
+}
+// Identifiants valides
+const validUsername = "admin";
+const validPassword = "1234";
+
+// Vérifie si l'utilisateur est déjà connecté
+if (window.location.pathname.includes("index.html")) {
+    if (localStorage.getItem("authenticated") !== "true") {
+        window.location.href = "login.html"; // Redirige vers la connexion
     }
 }
 
-function goBack() {
-    document.getElementById("countries").classList.add("hidden");
-    document.getElementById("continents").classList.remove("hidden");
+// Fonction de connexion
+function checkLogin(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let errorMessage = document.getElementById("error-message");
+
+    if (username === validUsername && password === validPassword) {
+        localStorage.setItem("authenticated", "true");
+        window.location.href = "index.html"; // Redirige vers la page principale
+    } else {
+        errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+    }
 }
