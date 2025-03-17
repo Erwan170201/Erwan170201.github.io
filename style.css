@@ -1,96 +1,140 @@
-/* Styles pour la page de connexion */
-.login-container {
-    width: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #005bb5;
-}
-
-.error {
-    color: red;
-    text-align: center;
-    margin-top: 10px;
-}
-
+/* Styles généraux */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #0073e6, #00a2ff);
     text-align: center;
+    color: white;
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: #0073e6;
-    color: white;
+/* Logo */
+.logo {
+    max-width: 200px;
+    margin: 20px 0;
+}
+
+/* Menu des continents */
+.continent-menu {
+    background: rgba(255, 255, 255, 0.2);
     padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-main {
-    margin: 20px;
-}
-
-ul {
+.continent-menu ul {
     list-style: none;
     padding: 0;
 }
 
-li {
-    background-color: #0073e6;
-    color: white;
-    padding: 15px;
+.continent-menu li {
+    background: white;
+    color: #0073e6;
+    padding: 10px;
     margin: 10px;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-li:hover {
-    background-color: #005bb5;
-}
-
-.hidden {
-    display: none;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #0073e6;
+.continent-menu li:hover {
+    background: #0073e6;
     color: white;
-    border: none;
+}
+
+/* Liste des pays */
+#countries {
+    margin-top: 20px;
+}
+
+#country-list {
+    list-style: none;
+    padding: 0;
+}
+
+#country-list li {
+    background: white;
+    color: #0073e6;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+#country-list li:hover {
+    background: #0073e6;
+    color: white;
+}
+
+/* Pied de page bien centré */
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+/* Conteneur de connexion */
+.login-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Champs du formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button:hover {
-    background-color: #005bb5;
+/* Messages d'erreur */
+.error {
+    color: red;
+    margin-top: 10px;
 }
+
+/* Pied de page centré */
+/* Pied de page centré */
+footer {
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-size: 14px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Amélioration de la lisibilité des liens */
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
