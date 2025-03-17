@@ -4,6 +4,21 @@ if (window.location.pathname.includes("index.html")) {
         window.location.href = "login.html"; // Redirige vers la page de connexion
     }
 }
+// Fonction de connexion
+function checkLogin(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let errorMessage = document.getElementById("error-message");
+
+    if (username === validUsername && password === validPassword) {
+        localStorage.setItem("authenticated", "true");
+        window.location.href = "index.html"; // Redirige vers la page principale
+    } else {
+        errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+    }
+}
 
 // Liste des pays par continent
 const countries = {
@@ -75,18 +90,3 @@ if (window.location.pathname.includes("index.html")) {
     }
 }
 
-// Fonction de connexion
-function checkLogin(event) {
-    event.preventDefault();
-
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let errorMessage = document.getElementById("error-message");
-
-    if (username === validUsername && password === validPassword) {
-        localStorage.setItem("authenticated", "true");
-        window.location.href = "index.html"; // Redirige vers la page principale
-    } else {
-        errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
-    }
-}
