@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technologie Médicale - QR Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Technologie Médicale</h1>
+        <p>Redirection QR Code par continents et pays</p>
+    </header>
+
+    <main>
+        <section id="continents">
+            <h2>Choisissez un continent</h2>
+            <ul>
+                <li onclick="showCountries('europe')">Europe</li>
+                <li onclick="showCountries('afrique')">Afrique</li>
+                <li onclick="showCountries('amerique')">Amérique</li>
+                <li onclick="showCountries('asie')">Asie</li>
+                <li onclick="showCountries('oceanie')">Océanie</li>
+            </ul>
+        </section>
+
+        <section id="countries" class="hidden">
+            <h2 id="continent-title"></h2>
+            <ul id="country-list"></ul>
+            <button onclick="goBack()">Retour</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
