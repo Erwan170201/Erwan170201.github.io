@@ -3,33 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technologie Médicale - QR Code</title>
+    <title>Technologie Médicale - Accueil</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
+        <img src="logo.png" alt="Technologie Médicale" class="logo">
         <h1>Technologie Médicale</h1>
     </header>
 
     <main>
-        <section id="continents">
+        <!-- Menu des continents -->
+        <section class="continent-menu">
             <h2>Choisissez un continent</h2>
             <ul>
-                <li onclick="showCountries('europe')">Europe</li>
-                <li onclick="showCountries('afrique')">Afrique</li>
-                <li onclick="showCountries('amerique')">Amérique</li>
-                <li onclick="showCountries('asie')">Asie</li>
-                <li onclick="showCountries('oceanie')">Océanie</li>
+                <li onclick="showCountries('europe')">🌍 Europe</li>
+                <li onclick="showCountries('afrique')">🌍 Afrique</li>
+                <li onclick="showCountries('amerique')">🌎 Amérique</li>
+                <li onclick="showCountries('asie')">🌏 Asie</li>
+                <li onclick="showCountries('oceanie')">🌊 Océanie</li>
             </ul>
         </section>
 
+        <!-- Liste des pays -->
         <section id="countries" class="hidden">
             <h2 id="continent-title"></h2>
             <ul id="country-list"></ul>
-            <button onclick="goBack()">Retour</button>
         </section>
     </main>
+
+    <footer>
+        <p>
+            TECHNOLOGIE MEDICALE S.A.S. - 101 rue Vaillant Couturier 93130 NOISY LE SEC FRANCE<br>
+            +33 (0)1 48 45 58 95 | +33 (0)1 49 42 90 21 | 
+            <a href="mailto:info@technologiemedicale.com">info@technologiemedicale.com</a><br>
+            <a href="https://www.technologiemedicale.com" target="_blank">https://www.technologiemedicale.com</a>
+        </p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
